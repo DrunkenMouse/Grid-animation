@@ -7,23 +7,31 @@
 //
 
 #import "ViewController.h"
+#import "ADGridViewController.h"
 
 @interface ViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    ADGridViewController * _flipGrid;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    _flipGrid = [[ADGridViewController alloc] initWithImage:[UIImage imageNamed:@"1"] gridCount:CGSizeMake(20, 6)];
+    
+    [self.view addSubview:_flipGrid.view];
+    
+    CGRect originalFrame = _flipGrid.view.frame;
+    originalFrame.origin.y = 150;
+    
+    
+    _flipGrid.view.frame = originalFrame;
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end
